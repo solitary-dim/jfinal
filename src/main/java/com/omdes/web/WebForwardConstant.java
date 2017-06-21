@@ -7,4 +7,5 @@ package com.omdes.web;
  * Time: 16:46
  */
 public final class WebForwardConstant {
+    public static final String FWD_INDEX = "index.jsp";
 }

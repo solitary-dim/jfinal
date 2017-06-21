@@ -18,23 +18,38 @@ import com.omdes.web.index.IndexController;
  * Time: 15:54
  */
 public class Application extends JFinalConfig {
+
+    private static final String BASE_PATH = "/WEB-INF/pages/";
+
+    /**
+     * 配置常量
+     */
     @Override
     public void configConstant(Constants constants) {
         constants.setEncoding("UTF-8");
+        //设置开发模式
         constants.setDevMode(true);
+        //设置视图类型为Jsp，否则默认为FreeMarker
         constants.setViewType(ViewType.JSP);
     }
 
+    /**
+     * 配置路由
+     */
     @Override
     public void configRoute(Routes routes) {
+        //第三个参数为该Controller的视图存放路径
         routes.add("/actions/", IndexController.class);
-        routes.add("/actions/user", AccountController.class);
+        routes.add("/actions/user", AccountController.class, BASE_PATH + "user");
     }
 
+    /**
+     * 配置插件
+     */
     @Override
     public void configPlugin(Plugins plugins) {
         //这里启用Jfinal插件
-        /*PropKit.use("jdbc.properties");
+       PropKit.use("jdbc.properties");
         final String URL =PropKit.get("jdbcUrl");
         final String USERNAME = PropKit.get("user");
         final String PASSWORD =PropKit.get("password");
@@ -46,10 +61,13 @@ public class Application extends JFinalConfig {
         druidPlugin.setFilters("stat,wall");
         plugins.add(druidPlugin);
         ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(druidPlugin);
-        activeRecordPlugin.addMapping("user","userid", Account.class);
-        plugins.add(activeRecordPlugin);*/
+        activeRecordPlugin.addMapping("t_account","ID", Account.class);
+        plugins.add(activeRecordPlugin);
     }
 
+    /**
+     * 配置全局拦截器
+     */
     @Override
     public void configInterceptor(Interceptors interceptors) {
         //这里用于配置全局的拦截器，对所有请求进行拦截
@@ -59,6 +77,9 @@ public class Application extends JFinalConfig {
         interceptors.addGlobalServiceInterceptor(new GlobalServiceInterceptor());
     }
 
+    /**
+     * 配置处理器
+     */
     @Override
     public void configHandler(Handlers handlers) {
 

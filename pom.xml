@@ -61,4 +61,57 @@
         </dependency>
     </dependencies>
 
+    <!--定义编译相关内容-->
+    <build>
+        <!--定义编译后的包名-->
+        <finalName>${project.artifactId}</finalName>
+
+        <!--此标签下的是将要加载的插件-->
+        <plugins>
+            <!-- 资源文件拷贝插件 -->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>-->
+
+            <!-- java编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose/>
+                        <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <!--此标签用于声明插件版本以便统一管理-->
+        <!--<pluginManagement>
+            <plugins>
+                &lt;!&ndash; 配置Tomcat插件 &ndash;&gt;
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        &lt;!&ndash;配置端口号&ndash;&gt;
+                        <port>80</port>
+                        &lt;!&ndash;配置访问路径，此处配置为根目录，即http://localhost/&ndash;&gt;
+                        <path>/</path>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>-->
+    </build>
+
 </project>

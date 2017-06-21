@@ -2,6 +2,8 @@ package com.omdes.web.index;
 
 import com.jfinal.core.Controller;
 
+import static com.omdes.web.WebForwardConstant.FWD_INDEX;
+
 /**
  * Created with IntelliJ IDEA.
  * User: solitary.wang
@@ -11,6 +13,6 @@ import com.jfinal.core.Controller;
 public class IndexController extends Controller {
 
     public void index(){
-        renderJsp("/index.jsp");
+        renderJsp(FWD_INDEX);
     }
 }
