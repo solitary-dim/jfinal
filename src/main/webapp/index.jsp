@@ -5,7 +5,7 @@
   Time: 17:40
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Title</title>
@@ -13,6 +13,10 @@
 <body>
 
 <h3>Index Page...</h3>
+
+<a href="http://localhost:8088/actions/user">account</a>
+<br>
+<a href="http://localhost:8088/actions/user/add">account</a>
 
 </body>
 </html>
