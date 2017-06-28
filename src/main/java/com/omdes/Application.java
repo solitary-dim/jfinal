@@ -11,6 +11,8 @@ import com.omdes.web.helper.GlobalActionInterceptor;
 import com.omdes.web.helper.GlobalServiceInterceptor;
 import com.omdes.web.index.IndexController;
 
+import static com.omdes.web.WebURIMappingConstant.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: solitary.wang
@@ -39,8 +41,8 @@ public class Application extends JFinalConfig {
     @Override
     public void configRoute(Routes routes) {
         //第三个参数为该Controller的视图存放路径
-        routes.add("/actions/", IndexController.class);
-        routes.add("/actions/user", AccountController.class, BASE_PATH + "user");
+        routes.add("/actions", IndexController.class, "/");
+        routes.add(URI_ACCOUNT, AccountController.class, BASE_PATH + "account/");
     }
 
     /**
@@ -49,7 +51,7 @@ public class Application extends JFinalConfig {
     @Override
     public void configPlugin(Plugins plugins) {
         //这里启用Jfinal插件
-       PropKit.use("jdbc.properties");
+        PropKit.use("jdbc.properties");
         final String URL =PropKit.get("jdbcUrl");
         final String USERNAME = PropKit.get("user");
         final String PASSWORD =PropKit.get("password");

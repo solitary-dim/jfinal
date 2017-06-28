@@ -8,4 +8,7 @@ package com.omdes.web;
  */
 public final class WebForwardConstant {
     public static final String FWD_INDEX = "index.jsp";
+    public static final String FWD_LOGIN = "WEB-INF/pages/login.jsp";
+
+    public static final String FWD_ACCOUNT_INDEX = "account.jsp";
 }

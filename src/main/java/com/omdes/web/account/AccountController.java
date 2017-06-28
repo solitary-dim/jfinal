@@ -1,10 +1,11 @@
 package com.omdes.web.account;
 
 import com.jfinal.core.Controller;
+import com.omdes.web.WebURIMappingConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.omdes.web.WebForwardConstant.FWD_INDEX;
+import static com.omdes.web.WebForwardConstant.FWD_ACCOUNT_INDEX;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,17 +19,17 @@ public class AccountController extends Controller {
     public void index() {
         LOGGER.info("enter account panel");
 
-        renderJsp(FWD_INDEX);
+        renderJsp(FWD_ACCOUNT_INDEX);
     }
 
     public void add() {
         LOGGER.info("account add");
 
         //renderJsp("add.jsp");
-        redirect("/actions/user/toAddPage");
+        redirect(WebURIMappingConstant.URI_ACCOUNT_ADD_REDIRECT);
     }
 
-    //URL隐藏login，显示成success
+    //URL隐藏add，显示成toAddPage
     public void toAddPage(){
         renderJsp("success.jsp");
     }
